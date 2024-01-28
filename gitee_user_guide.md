@@ -1,9 +1,11 @@
 # Gitee usage
 
+[toc]
+
 ## 1 Gitee Key manage
 
 ### 1.1.单key管理 
-如果需要在新的服务器上下载新的仓库内容或提交代码及内容，需要在自己的服务器上生成ssh公钥，并添加到自己的账户当中。具体可以参考: https://help.gitee.com/enterprise/code-manage/%E6%9D%83%E9%99%90%E4%B8%8E%E8%AE%BE%E7%BD%AE/%E9%83%A8%E7%BD%B2%E5%85%AC%E9%92%A5%E7%AE%A1%E7%90%86/%E7%94%9F%E6%88%90%E6%88%96%E6%B7%BB%E5%8A%A0SSH%E5%85%AC%E9%92%A5
+如果需要在新的服务器上下载新的仓库内容或提交代码及内容，需要在自己的服务器上生成ssh公钥，并添加到自己的账户当中。具体可以参考: [key manage](https://help.gitee.com/enterprise/code-manage/%E6%9D%83%E9%99%90%E4%B8%8E%E8%AE%BE%E7%BD%AE/%E9%83%A8%E7%BD%B2%E5%85%AC%E9%92%A5%E7%AE%A1%E7%90%86/%E7%94%9F%E6%88%90%E6%88%96%E6%B7%BB%E5%8A%A0SSH%E5%85%AC%E9%92%A5)
 
 ```bash
 1. sshkey生成密匙, 这里的 xxxxx@xxxxx.com 只是生成的 sshkey 的名称，并不约束或要求具体命名为某个邮箱
@@ -24,8 +26,8 @@ ssh -T git@gitee.com
 首次使用需要确认并添加主机到本机 SSH 可信列表。若返回 Hi XXX! You've successfully authenticated, but Gitee.com does not provide shell access. 内容，则证明添加成功。
 ```
 
-###1.2 多key管理
-需要有多个账号，或者与平时其他的账号隔离开可以参考: https://help.gitee.com/enterprise/code-manage/%E6%9D%83%E9%99%90%E4%B8%8E%E8%AE%BE%E7%BD%AE/%E9%83%A8%E7%BD%B2%E5%85%AC%E9%92%A5%E7%AE%A1%E7%90%86/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key
+### 1.2 多key管理
+需要有多个账号，或者与平时其他的账号隔离开可以参考: [mutil key manange](https://help.gitee.com/enterprise/code-manage/%E6%9D%83%E9%99%90%E4%B8%8E%E8%AE%BE%E7%BD%AE/%E9%83%A8%E7%BD%B2%E5%85%AC%E9%92%A5%E7%AE%A1%E7%90%86/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AASSH-Key)
 
 1. 与上面的指令类似
 
@@ -45,4 +47,18 @@ Host gitee
 ssh -T gitee
 # Hi aaa(@aaa)! You've successfully authenticated, but GITEE.COM does not provide shell access.
 
+```
+
+# Note
+```
+拉代码，提交操作
+
+git clone git@gitee.com:tanchuanyi/documentation.git
+or git clone gitee:tanchuanyi/documentation.git
+git commit -s  #编辑修改内容     
+git commit --amend #修改上一条提交内容
+git push #提交
+
+其中默认git commit -s 使用的是gun nano的编辑器进行编辑，其中操作ctrl+o 保存   crtl+x退出。
+可以修改使用vim进行提交信息的编译，使用 git config --global core.editor "vim"。
 ```
