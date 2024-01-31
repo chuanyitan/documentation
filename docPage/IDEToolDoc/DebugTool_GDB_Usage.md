@@ -177,4 +177,55 @@ https://blog.csdn.net/zhanghaiyang9999/article/details/110957728
 
 
 
+### 2.2.7 调用栈管理
 
+* backtrace/bt 查看栈回溯信息
+* frame n 切换栈帧
+* info f n 查看栈帧信息
+
+
+
+
+# 6.Core dump
+
+转存储文件（core dump）可以是某个进程的，也可以是整个系统的。可以是进程活着的时候生成的，也可以是进程或者进程崩溃的时候自动生成的。
+
+分两种：
+1.活着的进程，创建core dump文件，一般可以通过gdb生成，使用gdb attach后，执行generate-core-file或者gcore命令来生成core dump文件
+
+2.崩溃产生的core dump文件分析。遇到的更多的是在这种情况下。
+* 如何生成core dump文件？
+* 如何进行崩溃的core dump调试？
+
+最好是让程序或系统崩溃时，自动生成core dum篇文件
+如 ubuntu上：
+cat /proc/sys/kernel/core_patten
+ulimit -c 查看是否打开生成dump文件
+
+
+```bash
+#为活着的进程生成dump文件
+(gdb) attach pid
+(gdb) gcore test.core
+(gdb) detach
+
+```
+一般在系统会有相关的命令行进行设置，可以让系统在系统或程序崩溃时，自动生成core dump文件。比如：
+```bash
+$ ulimit -c
+0  一般为0时，崩溃时不会生成dump文件
+
+$ ulimit -c unlimited #将其设置成没有限制
+$ ulimit -c
+unlimited    # 这个时候再执行能产生崩溃的进程，就会生成dump文件
+#比如 Segmentation fault (core dump) #有这行打印，说明是有生成
+#当前目录下会生成一个 core文件，这个core文件名由 cat /proc/sys/kernel/core_pattern这个控制，默认都是这个文件名，默认都是没有启动core dump
+#可以echo -e "%e-%p-%t" > /proc/sys/kernel/core_pattern  就可以修改生成dump的的文件命名，以文件名-进程号-日期进行命名
+#也有用systemd-coredump进程生成的
+```
+
+使用gdb ./name.exe coredump-file, 可以加载dump信息，还原崩溃时的状态
+```bash
+gdb ./name.exe coredump-file
+(gdb) bt   #查看崩溃时栈的信息
+```
