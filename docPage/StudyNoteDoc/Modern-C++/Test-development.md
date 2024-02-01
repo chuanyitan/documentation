@@ -41,7 +41,6 @@ $ sudo update-alternatives --config gcc
 
 
 ### update cmake
-
 $sudo apt install cmake
 
 $ wget https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5.tar.gz
@@ -53,6 +52,26 @@ $ make
 $ sudo make install
 $ cmake --version
 
+#最好直接使用最新cmake版本 	cmake-3.28.2.tar.gz
+$ wget https://github.com/Kitware/CMake/releases/download/v3.28.2/cmake-3.28.2.tar.gz
+
+### update python3.8
+$ sudo apt install -y build-essential python3-pip python3.8  doxygen
+# 下面内容可以暂时不用安装  
+$ python3.8 -m pip install --upgrade pip
+$ python3.8 -m pip install cmake Jinja2~=3.1.2 antlr4-python3-runtime~=4.13.0
+$ sudo apt install -y default-jre-headless graphviz git libncurses-dev libncursesw5-dev
+
+# ubuntu里安装了python2和python3
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
+# 选择默认版本
+$ sudo update-alternatives --config python
+
+# 多个版本python3, 来选择默认的版本
+$ sudo update-alternatives --install /usr/bin/python python3 /usr/bin/python3.6 150
+$ sudo update-alternatives --install /usr/bin/python python3 /usr/bin/python3.8 100
+$ sudo update-alternatives --config python3
 
 ```
 
@@ -77,3 +96,7 @@ bdd: https://github.com/michaelvlach/cppbdd  main 1.0.0
 
 c-mok: https://github.com/hjagodzinski/C-Mock/tree/v0.4.0
 ```
+
+gtest sample 参考 https://blog.csdn.net/wei_y0117/article/details/127922331
+
+   https://blog.csdn.net/xb_2015/article/details/124361154
