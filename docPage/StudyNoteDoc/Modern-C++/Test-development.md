@@ -52,6 +52,14 @@ $ make
 $ sudo make install
 $ cmake --version
 
+$ 如果本地没有cmake或版本低，可以用以下方式操作；
+$ cd cmake-3.28.2
+$ ./bootstrap
+$ make -j12
+$ sudo make install
+
+$ cmake --version
+
 #最好直接使用最新cmake版本 	cmake-3.28.2.tar.gz
 $ wget https://github.com/Kitware/CMake/releases/download/v3.28.2/cmake-3.28.2.tar.gz
 
