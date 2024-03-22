@@ -1,0 +1,5 @@
+site_name: My Docs
+site_url: http://tanchuanyi.gitee.io/documentation
+site_author: tanchuanyi
+theme:
+        name: material
