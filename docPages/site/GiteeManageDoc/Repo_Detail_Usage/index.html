@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="tanchuanyi" /><link rel="canonical" href="https://tanchuanyi.gitee.io/documentation/GiteeManageDoc/Repo_Detail_Usage/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>repo多仓库管理工具 - Study Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "repo\u591a\u4ed3\u5e93\u7ba1\u7406\u5de5\u5177";
+        var mkdocs_page_input_path = "GiteeManageDoc/Repo_Detail_Usage.md";
+        var mkdocs_page_url = "/documentation/GiteeManageDoc/Repo_Detail_Usage/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Study Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Study Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">repo多仓库管理工具</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="repo">repo多仓库管理工具</h1>
+<p><code>Android</code>使用<code>Git</code>作为基础的代码管理工具。<code>Google</code>开发了<code>Gerrit</code>进行代码审核以便更好的对代码进行集中式管理，还开发了<code>repo</code>命令行工具，对Git部分命令进行封装，用于管理<code>Android</code>项目，可将百多个<code>Git</code>仓库有效的进行组织。<code>repo</code>并不是用来取代Git，而是用<code>Python</code>对<code>Git</code>进行了一定的封装，简化了对多个<code>Git</code>版本仓库的管理。</p>
+<p>参考资料：</p>
+<ul>
+<li>repo仓库管理： https://gitee.com/simpost/repo_tutorial （本文档摘自此处）</li>
+<li>Git多项目管理：https://www.jianshu.com/p/284ded3d191b</li>
+<li>Git-Repo多仓库管理：https://www.jianshu.com/p/eaf783b3230c</li>
+</ul>
+<h2 id="repo_1">一、<code>repo</code>安装</h2>
+<p><code>repo</code>工具的<code>git-repo</code>仓库获取方式为：</p>
+<pre><code>git clone https://github.com/esrlabs/git-repo.git
+</code></pre>
+<ol>
+<li>获取<code>git-repo</code>源码到本地路劲，比如<code>/opt/git-repo</code>；</li>
+<li>拷贝<code>git-repo</code>源码中的repo工具到`/home/user/bin/rep目三、录，并赋予可执行权限；</li>
+<li>修改<code>/home/user/bin/repo</code>脚本中的<code>REPO-URL</code>链接指向本地的<code>/opt/git-repo</code>即可正常使用了</li>
+</ol>
+<h3 id="11-repo">1.1 repo的国内镜像安装</h3>
+<p><font color="#dd0000" size="4">参考Gitee repo官方工具使用方法 ，直接参考该文档 <a href="https://help.gitee.com/enterprise/code-manage/%E9%9B%86%E6%88%90%E4%B8%8E%E7%94%9F%E6%80%81/Repo%20%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D">Repo 工具使用介绍</a>， 前题需要配置好python的环境， 安装好python3的环境，并配置好默认python使用的python3工具。</font><br /></p>
+<h2 id="repo_2">二、repo命令使用</h2>
+<h3 id="21">2.1 初始化</h3>
+<pre><code>mkdir repo_dir &amp;&amp; cd repo_dir
+repo init -u url -m manifest-file
+</code></pre>
+<p><code>repo init</code>命令会在当前目录下安装<code>repository</code>，并在当前目录创建一个目录：<code>.repo</code>；<code>-u</code>参数指定一个<code>URL</code>，<code>repo</code>将从这个URL指定的<code>repository</code>中取得<code>manifest</code>文件；<code>-m</code>参数可以选择<code>repository</code>中的某一个特定的<code>manifest</code>文件，如果不指定，则为默认的<code>default.xml</code>文件。</p>
+<h3 id="22-git">2.2 同步git仓库</h3>
+<pre><code>repo sync
+repo sync --force-sync # 强制同步整个仓库
+</code></pre>
+<h3 id="23-repogitcheckoutmaster">2.3 将所有repo控制的git仓库<code>checkout</code>到远程<code>master</code>分支</h3>
+<pre><code>repo forall -c git checkout -b master remotes/origin/master
+</code></pre>
+<h3 id="24">2.4 清除并还原本地修改</h3>
+<pre><code>repo forall -c 'git clean -df; git checkout .'
+</code></pre>
+<h3 id="25">2.5 查看工程中所有仓库的修改状态</h3>
+<pre><code>repo status
+</code></pre>
+<h3 id="26">2.6 将某个时间段所有仓库修改记录显示出来</h3>
+<pre><code>repo forall -c git log --name-status --since=&quot;2017-02-12&quot; --until=&quot;2017-03-01&quot;
+</code></pre>
+<h3 id="27">2.7 上传修改</h3>
+<pre><code>repo upload [project-list]
+</code></pre>
+<p>如上命令用于上传修改的代码。如果你本地的代码有所修改，那么在运行<code>repo sync</code>的时候，会提示你上传修改的代码，所有修改的代码分支会上传到<code>Gerrit</code>上，<code>Gerrit</code>受到上传的代码，会转换为一个个变更，从而可以让人们来<code>review</code>修改的代码。</p>
+<h3 id="28">2.8 查看差异</h3>
+<pre><code>repo diff [project-list]
+</code></pre>
+<p>用于显示提交的代码和当前工作目录代码之间的差异。</p>
+<h3 id="29-command">2.9 执行command命令</h3>
+<pre><code>repo forall -c command
+</code></pre>
+<p>对所有的项目执行一个<code>command</code>命令，这个命令相当好用。</p>
+<h2 id="_1">三、配置文件详解</h2>
+<p>配置文件以下面语句开头：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</code></pre>
+<p>整个文档由<code>manifest</code>标签包裹，它是配置的顶层元素：</p>
+<pre><code>&lt;manifest&gt;
+...
+&lt;/manifest&gt;
+</code></pre>
+<p>其中主要包含<code>remote</code>、<code>default</code>和<code>project</code>三个元素：</p>
+<ul>
+<li><code>remote</code>元素用于设定远程服务器的属性，可以为多个，其相关属性如下：<ul>
+<li><code>name</code>属性用于设置远程服务器名，用于<code>git fetch</code>、<code>git remote</code>等操作；</li>
+<li><code>alias</code>属性可以覆盖之前定义的<code>remote name</code>，<code>name</code>必须是固定的，但是<code>alias</code>可以不同，可以用来指向不同的<code>remote url</code>；</li>
+<li><code>fetch</code>属性是所有<code>project</code>的<code>git url</code>的前缀；</li>
+<li><code>review</code>属性用于指定<code>gerrit</code>服务器，用于<code>repo upload</code>操作；</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;remote name=&quot;origin&quot; fetch=&quot;gerrit.dd.net&quot; review=&quot;http://gerrit.dd.net&quot;/&gt;
+</code></pre>
+<ul>
+<li><code>default</code>元素用于设定所有<code>project</code>的默认属性值：<ul>
+<li>·属性用于指定为哪个<code>remote</code>元素设定默认<code>project</code>属性值；</li>
+<li><code>revision</code>属性你用于设置git仓库的分支名，如<code>master</code>或<code>refs/heads/master</code>；</li>
+<li><code>sync-j</code>属性设定sync操作时的并行线程数；</li>
+<li><code>sync-c</code>：如果设置为true，则只同步指定的分支(<code>revision</code> 属性指定)，而不是所有的ref内容；</li>
+<li><code>sync-s</code>：如果设置为true，则会同步git的子项目；</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;default revision=&quot;master&quot; remote=&quot;origin&quot; sync-j=&quot;4&quot; /&gt;
+</code></pre>
+<ul>
+<li><code>project</code>元素用于指定要<code>clone</code>的<code>git</code>仓库：<ul>
+<li><code>name</code>属性与<code>remote</code>的<code>fetch</code>属性一起拼接成项目的<code>git</code>仓库的<code>url</code>；</li>
+<li><code>path</code>属性指定<code>clone</code>出来的git仓库在本地的路径，如果没有配置则与<code>name</code>一样；</li>
+<li><code>remote</code>：定义<code>remote name</code>，如果没有定义的话就用<code>default</code>中定义的<code>remote name</code>；</li>
+<li><code>resivion</code>属性用于指定获取git的提交点，可以是固定的<code>branch</code>，也可以是明确的<code>commit</code>哈希值；</li>
+<li><code>groups</code>：列出project所属的组，以空格或者逗号分隔多个组名；所有的<code>projec</code>t都自动属于"all"组；每一个<code>project</code>自动属于<code>name:'name'</code>和<code>path:'path'</code>组；例如，它自动属于<code>default,name:monkeys,and path:barrel-of</code>组；如果一个<code>project</code>属于<code>notdefault</code>组，则：<code>repo sync</code>时不会下载；</li>
+<li><code>sync_c</code>：如果设置为true，则只同步指定的分支(<code>revision</code> 属性指定)，而不是所有的ref内容；</li>
+<li><code>sync_s</code>： 如果设置为true，则会同步git的子项目；</li>
+<li><code>upstream</code>：在哪个git分支可以找到一个<code>SHA1</code>；用于同步<code>revision</code>锁定的<code>manifest</code>(<code>-c</code>模式)；该模式可以避免同步整个ref空间；</li>
+<li><code>annotation</code> ：可以有0个或多个<code>annotation</code>，格式是<code>name-value</code>，<code>repo forall</code>命令是会用来定义环境变量；</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;project path=&quot;fanxiao/fanxiaotest1&quot; name=&quot;MA/Application/app-a&quot; revision=&quot;master&quot; /&gt;
+&lt;project path=&quot;fanxiao/fanxiaotest2&quot; name=&quot;MA/Application/app-b&quot; revision=&quot;52cf9185ff1d&quot; /&gt;
+&lt;project path=&quot;fanxiao/fanxiaotest3&quot; name=&quot;fanxiaotest&quot; revision=&quot;master&quot;/&gt;
+</code></pre>
+<ul>
+<li><code>include</code>元素：<ul>
+<li><code>name</code>：另一个需要导入的<code>manifest</code>文件名字；可以在当前的路径下添加一个<code>another_manifest.xml</code>，这样可以在另一个<code>xml</code>中添加或删除<code>project</code>；</li>
+</ul>
+</li>
+<li><code>remove-project</code>：从内部的<code>manifest</code>表中删除指定的<code>project</code>；经常用于本地的<code>manifest</code>文件，用户可以替换一个<code>project</code>的定义。</li>
+</ul>
+<p>有时候<code>manifest</code>中还会包含<code>manifest-server</code>元素。它的<code>url</code>属性用于指定<code>manifest</code>服务的<code>URL</code>，通常是一个<code>XML RPC</code>服务。它要支持一下<code>RPC</code>方法：
+- <code>GetApprovedManifest</code>(<code>branch</code>, <code>target</code>)：返回一个<code>manifest</code>用于指示所有<code>projects</code>的分支和编译目标；<code>target</code>参数来自环境变量<code>TARGET_PRODUCT</code>和<code>TARGET_BUILD_VARIANT</code>，组成<code>$TARGET_PRODUCT-$TARGET_BUILD_VARIANT</code>
+- <code>GetManifest(tag)</code> ：返回指定tag的<code>manifest</code></p>
+<h2 id="_2">四、常见问题</h2>
+<h3 id="41-xml">4.1 如何指定xml配置文件？</h3>
+<p>在<code>repo init</code>命令时，通过<code>-m name.xml</code>来指定<code>manifest</code>的名字，比如：</p>
+<pre><code>repo init -u https://github.com/AaronKonishi/repo-study.git -m manifest.xml
+</code></pre>
+<p>当不使用<code>-m</code>指定<code>manifest</code>时，默认使用<code>default.xml</code>。</p>
+<h3 id="42">4.2 如何指定固定分支？</h3>
+<p>在<code>default</code>元素中，可以为<code>remote</code>指定默认的属性，其中的<code>revision</code>可以指定默认的分支：</p>
+<pre><code>&lt;default revision=&quot;master&quot; remote=&quot;origin&quot; sync-j=&quot;4&quot; /&gt;
+</code></pre>
+<p>在具体的<code>project</code>元素中，也可以使用<code>revision</code>指定固定的分支，分支可以是<code>tag</code>、<code>branch</code>，或者某次固定的提交：</p>
+<pre><code>&lt;project path=&quot;fanxiao/fanxiaotest1&quot; name=&quot;MA/Application/app-a&quot; revision=&quot;master&quot; /&gt;
+&lt;project path=&quot;fanxiao/fanxiaotest2&quot; name=&quot;MA/Application/app-b&quot; revision=&quot;52cf9185ff1d&quot; /&gt;
+</code></pre>
+<h3 id="43">4.3 如何指定多个远程？</h3>
+<p>可以在<code>*.xml</code>中指定多个<code>remote</code>元素，但是只能有一个<code>default</code>元素，然后在<code>project</code>元素中，通过<code>remote</code>属性指定要使用哪一个<code>remote</code>的<code>fetch</code>。比如：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;manifest&gt;
+&lt;remote name=&quot;gitee&quot; fetch=&quot;https://gitee.com/simpost/&quot; /&gt;
+&lt;remote name=&quot;github&quot; fetch=&quot;https://github.com/AaronKonishi/&quot; /&gt;
+&lt;default revision=&quot;master&quot; remote=&quot;github&quot; /&gt;
+&lt;project path=&quot;source/git-repo&quot; name=&quot;git-repo&quot; remote=&quot;github&quot; /&gt;
+&lt;project path=&quot;source/repo-study&quot; name=&quot;repo-study&quot; remote=&quot;github&quot; /&gt;
+
+&lt;project path=&quot;source/EFSM&quot; name=&quot;EFSM&quot; remote=&quot;gitee&quot; revision=&quot;master&quot; /&gt;
+&lt;/manifest&gt;
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

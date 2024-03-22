@@ -1,5 +1,12 @@
-site_name: My Docs
-site_url: http://tanchuanyi.gitee.io/documentation
+site_name: Study Documentation
+site_url: https://tanchuanyi.gitee.io/documentation
 site_author: tanchuanyi
-theme:
-        name: material
+nav:
+        - Home: index.md
+        - Gitee_Usage_Guide: GiteeManageDoc/Gitee_Usage_Guide.md
+        - Repo_Detail_Usage: GiteeManageDoc/Repo_Detail_Usage.md
+              
+        
+theme: readthedocs
+
+
