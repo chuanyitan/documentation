@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="tanchuanyi" /><link rel="canonical" href="https://tanchuanyi.gitee.io/documentation/GiteeManageDoc/Repo_Detail_Usage/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>repo多仓库管理工具 - Study Documentation</title>
+    <title>Repo_Detail_Usage - Study Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "repo\u591a\u4ed3\u5e93\u7ba1\u7406\u5de5\u5177";
+        var mkdocs_page_name = "Repo_Detail_Usage";
         var mkdocs_page_input_path = "GiteeManageDoc/Repo_Detail_Usage.md";
         var mkdocs_page_url = "/documentation/GiteeManageDoc/Repo_Detail_Usage/";
       </script>
@@ -43,6 +43,79 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">GiteeUsageGuide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Gitee_Usage_Guide/">Gitee_Usage_Guide</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Repo_Detail_Usage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#repo_1">一、repo安装</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#11-repo">1.1 repo的国内镜像安装</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#repo_2">二、repo命令使用</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21">2.1 初始化</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-git">2.2 同步git仓库</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23-repogitcheckoutmaster">2.3 将所有repo控制的git仓库checkout到远程master分支</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24">2.4 清除并还原本地修改</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#25">2.5 查看工程中所有仓库的修改状态</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#26">2.6 将某个时间段所有仓库修改记录显示出来</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#27">2.7 上传修改</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#28">2.8 查看差异</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#29-command">2.9 执行command命令</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">三、配置文件详解</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">四、常见问题</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41-xml">4.1 如何指定xml配置文件？</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42">4.2 如何指定固定分支？</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#43">4.3 如何指定多个远程？</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">IDEToolDoc</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../IDEToolDoc/DebugToolManageDoc/">DebugToolManageDoc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../IDEToolDoc/DebugTool_GDB_Usage/">DebugTool_GDB_Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../IDEToolDoc/VSCode_tool_doc/">VSCode_tool_doc</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">StudyNoteDoc</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux_system</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../StudyNoteDoc/Linux_system/LXC_study/">LXC_study</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../StudyNoteDoc/Linux_system/SystemD%26SystemV_study/">SystemD&SystemV_study</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../StudyNoteDoc/Modern-C%2B%2B/Test-development/">Modern-C++</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../StudyNoteDoc/Software_Design/UML_Design_Study/">Software_Design</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -57,7 +130,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">repo多仓库管理工具</li>
+          <li class="breadcrumb-item">GiteeUsageGuide</li>
+      <li class="breadcrumb-item active">Repo_Detail_Usage</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -211,6 +285,10 @@ repo sync --force-sync # 强制同步整个仓库
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Gitee_Usage_Guide/" class="btn btn-neutral float-left" title="Gitee_Usage_Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../IDEToolDoc/DebugToolManageDoc/" class="btn btn-neutral float-right" title="DebugToolManageDoc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -232,6 +310,10 @@ repo sync --force-sync # 强制同步整个仓库
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../Gitee_Usage_Guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../IDEToolDoc/DebugToolManageDoc/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

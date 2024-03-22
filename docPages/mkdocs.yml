@@ -3,10 +3,20 @@ site_url: https://tanchuanyi.gitee.io/documentation
 site_author: tanchuanyi
 nav:
         - Home: index.md
-        - Gitee_Usage_Guide: GiteeManageDoc/Gitee_Usage_Guide.md
-        - Repo_Detail_Usage: GiteeManageDoc/Repo_Detail_Usage.md
-              
-        
+        - GiteeUsageGuide: 
+                - Gitee_Usage_Guide: GiteeManageDoc/Gitee_Usage_Guide.md
+                - Repo_Detail_Usage: GiteeManageDoc/Repo_Detail_Usage.md
+        - IDEToolDoc:
+                - DebugToolManageDoc: IDEToolDoc/DebugToolManageDoc.md
+                - DebugTool_GDB_Usage:      IDEToolDoc/DebugTool_GDB_Usage.md
+                - VSCode_tool_doc:      IDEToolDoc/VSCode_tool_doc.md
+        - StudyNoteDoc:
+                - Linux_system:
+                        - LXC_study: StudyNoteDoc/Linux_system/LXC_study.md
+                        - SystemD&SystemV_study: StudyNoteDoc/Linux_system/SystemD&SystemV_study.md
+                - Modern-C++: StudyNoteDoc/Modern-C++/Test-development.md
+                - Software_Design: StudyNoteDoc/Software_Design/UML_Design_Study.md
+
 theme: readthedocs
 
 
