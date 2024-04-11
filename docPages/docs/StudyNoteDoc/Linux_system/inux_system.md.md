@@ -7,6 +7,7 @@
 * elf的开头一般是有一个magic number(0x 7F 45 4C 46 02 01  01 00)
 * study link1 [知乎](https://zhuanlan.zhihu.com/p/544198038) 
 * study link2 [博客](https://www.cnblogs.com/QiQi-Robotics/p/15573352.html)
+* study link3 [CSDN 程序本质系列](https://blog.csdn.net/npy_lp/category_9411979.html)
 
 ```bash
 # Elf Header
